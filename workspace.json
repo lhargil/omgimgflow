@@ -8,7 +8,7 @@
       "prefix": "omgimgflow",
       "targets": {
         "build": {
-          "executor": "@angular-devkit/build-angular:browser",
+          "executor": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/apps/omgimgflow-app",
             "index": "apps/omgimgflow-app/src/index.html",
@@ -18,7 +18,10 @@
             "aot": true,
             "assets": ["apps/omgimgflow-app/src/favicon.ico", "apps/omgimgflow-app/src/assets"],
             "styles": ["apps/omgimgflow-app/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -51,7 +54,7 @@
           }
         },
         "serve": {
-          "executor": "@angular-devkit/build-angular:dev-server",
+          "executor": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "omgimgflow-app:build"
           },
