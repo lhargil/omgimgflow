@@ -1,8 +1,150 @@
 {
   "version": 2,
-
-  "projects": {},
+  "projects": {
+    "omgimgflow-app": {
+      "projectType": "application",
+      "root": "apps/omgimgflow-app",
+      "sourceRoot": "apps/omgimgflow-app/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/omgimgflow-app",
+            "index": "apps/omgimgflow-app/src/index.html",
+            "main": "apps/omgimgflow-app/src/main.ts",
+            "polyfills": "apps/omgimgflow-app/src/polyfills.ts",
+            "tsConfig": "apps/omgimgflow-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/omgimgflow-app/src/favicon.ico",
+              "apps/omgimgflow-app/src/assets"
+            ],
+            "styles": [
+              "apps/omgimgflow-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/omgimgflow-app/src/environments/environment.ts",
+                  "with": "apps/omgimgflow-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "omgimgflow-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "omgimgflow-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "omgimgflow-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/omgimgflow-app/tsconfig.app.json",
+              "apps/omgimgflow-app/tsconfig.spec.json",
+              "apps/omgimgflow-app/tsconfig.editor.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/omgimgflow-app/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/omgimgflow-app"
+          ],
+          "options": {
+            "jestConfig": "apps/omgimgflow-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "omgimgflow-app-e2e": {
+      "root": "apps/omgimgflow-app-e2e",
+      "sourceRoot": "apps/omgimgflow-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/omgimgflow-app-e2e/cypress.json",
+            "tsConfig": "apps/omgimgflow-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "omgimgflow-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "omgimgflow-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/omgimgflow-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/omgimgflow-app-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "omgimgflow-app"
 }

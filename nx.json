@@ -22,5 +22,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "omgimgflow-app": {
+      "tags": []
+    },
+    "omgimgflow-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["omgimgflow-app"]
+    }
+  }
 }
