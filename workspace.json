@@ -16,13 +16,8 @@
             "polyfills": "apps/omgimgflow-app/src/polyfills.ts",
             "tsConfig": "apps/omgimgflow-app/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/omgimgflow-app/src/favicon.ico",
-              "apps/omgimgflow-app/src/assets"
-            ],
-            "styles": [
-              "apps/omgimgflow-app/src/styles.scss"
-            ],
+            "assets": ["apps/omgimgflow-app/src/favicon.ico", "apps/omgimgflow-app/src/assets"],
+            "styles": ["apps/omgimgflow-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -80,17 +75,12 @@
               "apps/omgimgflow-app/tsconfig.spec.json",
               "apps/omgimgflow-app/tsconfig.editor.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/omgimgflow-app/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/omgimgflow-app/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/omgimgflow-app"
-          ],
+          "outputs": ["coverage/apps/omgimgflow-app"],
           "options": {
             "jestConfig": "apps/omgimgflow-app/jest.config.js",
             "passWithNoTests": true
@@ -119,13 +109,8 @@
         "lint": {
           "executor": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/omgimgflow-app-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/omgimgflow-app-e2e/**/*"
-            ]
+            "tsConfig": ["apps/omgimgflow-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/omgimgflow-app-e2e/**/*"]
           }
         }
       }
