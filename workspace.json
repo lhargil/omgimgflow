@@ -56,7 +56,8 @@
         "serve": {
           "executor": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "omgimgflow-app:build"
+            "browserTarget": "omgimgflow-app:build",
+            "proxyConfig": "apps/omgimgflow-app/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -117,6 +118,55 @@
           }
         }
       }
+    },
+    "omgimgflow-app-shell": {
+      "projectType": "library",
+      "root": "libs/omgimgflow-app/shell",
+      "sourceRoot": "libs/omgimgflow-app/shell/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/omgimgflow-app/shell/tsconfig.lib.json", "libs/omgimgflow-app/shell/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/omgimgflow-app/shell/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/omgimgflow-app/shell"],
+          "options": {
+            "jestConfig": "libs/omgimgflow-app/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "omgimgflow-app-photos": {
+      "projectType": "library",
+      "root": "libs/omgimgflow-app/photos",
+      "sourceRoot": "libs/omgimgflow-app/photos/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/omgimgflow-app/photos/tsconfig.lib.json",
+              "libs/omgimgflow-app/photos/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/omgimgflow-app/photos/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/omgimgflow-app/photos"],
+          "options": {
+            "jestConfig": "libs/omgimgflow-app/photos/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -128,7 +178,8 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     },
     "@nrwl/angular:component": {
       "style": "scss"

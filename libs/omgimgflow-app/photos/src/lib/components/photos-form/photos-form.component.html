@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="photosForm">
+  <div>
+    <label for="photo">
+      Photo:
+      <input type="file" formControlName="photo" (change)="onFileUpload($event)" />
+    </label>
+  </div>
+  <div>
+    <label for="description">
+      Description:
+      <textarea formControlName="description" cols="30" rows="10"></textarea>
+    </label>
+  </div>
+  <button
+    class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    type="submit"
+    [disabled]="!photosForm.valid"
+  >
+    Save
+  </button>
+</form>

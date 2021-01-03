@@ -29,6 +29,12 @@
     "omgimgflow-app-e2e": {
       "tags": [],
       "implicitDependencies": ["omgimgflow-app"]
+    },
+    "omgimgflow-app-shell": {
+      "tags": ["scope:omgimgflow-app", "type:feature"]
+    },
+    "omgimgflow-app-photos": {
+      "tags": ["scope:omgimgflow-app", "type:feature"]
     }
   }
 }
