@@ -14,8 +14,9 @@ import { PhotosService } from '../../photos.service';
       (fileUpload)="handleFileUpload($event)"
     ></omgimgflow-photos-form>
     <ng-container *ngIf="photos$ | async as photos">
+      {{ photos | json }}
       <div *ngFor="let photo of photos">
-        <img [src]="photo" />
+        <img [src]="photo.filename" />
       </div>
     </ng-container>
   `,
@@ -32,11 +33,7 @@ export class ShellPhotosComponent implements OnInit {
   uploadedFile: File | null = null;
 
   addedPhoto$ = new BehaviorSubject<boolean>(true);
-  photos$ = this.addedPhoto$.pipe(
-    switchMap((addedPhoto) =>
-      this.photoService.getPhotos().pipe(map((photos: string[]) => photos.map((photo) => `${photo}?width=300`))),
-    ),
-  );
+  photos$ = this.addedPhoto$.pipe(switchMap((addedPhoto) => this.photoService.getPhotos()));
 
   constructor(private fb: FormBuilder, private photoService: PhotosService) {
     this.photosForm = this.fb.group({

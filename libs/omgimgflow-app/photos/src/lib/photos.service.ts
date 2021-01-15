@@ -11,10 +11,19 @@ export class PhotosService {
   baseImageUrl = '/photos';
   constructor(private httpClient: HttpClient) {}
 
-  getPhotos(): Observable<string[]> {
-    return this.httpClient
-      .get<string[]>(this.apiUrl)
-      .pipe(map((photos: string[]) => photos.map((photo) => `${this.baseImageUrl}/${photo}`)));
+  getPhotos(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.apiUrl).pipe(
+      map((photos: any[]) =>
+        photos.map((photo) => {
+          return {
+            id: photo.id,
+            filename: `${this.baseImageUrl}/${photo.filename}?width=300`,
+            description: photo.description,
+            tags: photo.tags,
+          };
+        }),
+      ),
+    );
   }
 
   uploadPhoto(photo: any) {
