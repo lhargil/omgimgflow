@@ -23,7 +23,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
     </header>
     <div class="min-h-screen flex flex-col justify-between bg-gray-100 dark:bg-gray-900 dark:text-gray-200">
       <div class="flex-grow">
-        <div class="container mx-auto md:py-6">
+        <div class="container mx-auto p-5">
           <router-outlet></router-outlet>
         </div>
       </div>

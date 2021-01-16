@@ -7,19 +7,7 @@ import { PhotosService } from '../../photos.service';
 
 @Component({
   selector: 'omgimgflow-shell-photos',
-  template: `
-    <omgimgflow-photos-form
-      [photosForm]="photosForm"
-      (formSubmit)="handleFormSubmit($event)"
-      (fileUpload)="handleFileUpload($event)"
-    ></omgimgflow-photos-form>
-    <ng-container *ngIf="photos$ | async as photos">
-      {{ photos | json }}
-      <div *ngFor="let photo of photos">
-        <img [src]="photo.filename" />
-      </div>
-    </ng-container>
-  `,
+  templateUrl: './shell-photos.component.html',
   styles: [
     `
       :host {
@@ -29,6 +17,7 @@ import { PhotosService } from '../../photos.service';
   ],
 })
 export class ShellPhotosComponent implements OnInit {
+  searchForm!: FormGroup;
   photosForm!: FormGroup;
   uploadedFile: File | null = null;
 
@@ -39,6 +28,9 @@ export class ShellPhotosComponent implements OnInit {
     this.photosForm = this.fb.group({
       photo: this.fb.control(null, [Validators.required]),
       description: this.fb.control('', [Validators.required]),
+    });
+    this.searchForm = this.fb.group({
+      keyword: this.fb.control(''),
     });
   }
 

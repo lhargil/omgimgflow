@@ -7,7 +7,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild([{ path: '', component: ShellPhotosComponent }])],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ShellPhotosComponent,
+      },
+    ]),
+  ],
   declarations: [ShellPhotosComponent, PhotosFormComponent],
   exports: [ShellPhotosComponent],
 })
