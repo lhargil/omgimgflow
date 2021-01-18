@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@omgimgflow/omgimgflow-app/shell": ["libs/omgimgflow-app/shell/src/index.ts"],
-      "@omgimgflow/omgimgflow-app/photos": ["libs/omgimgflow-app/photos/src/index.ts"]
+      "@omgimgflow/omgimgflow-app/photos": ["libs/omgimgflow-app/photos/src/index.ts"],
+      "@omgimgflow/omgimgflow-app/photos/features/shell": ["libs/omgimgflow-app/photos/features/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

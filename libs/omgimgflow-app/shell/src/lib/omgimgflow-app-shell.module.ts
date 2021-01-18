@@ -21,7 +21,9 @@ const routes: Routes = [];
           {
             path: 'photos',
             loadChildren: () =>
-              import('@omgimgflow/omgimgflow-app/photos').then((module) => module.OmgimgflowAppPhotosModule),
+              import('@omgimgflow/omgimgflow-app/photos/features/shell').then(
+                (module) => module.OmgimgflowAppPhotosFeaturesShellModule,
+              ),
           },
         ],
       },

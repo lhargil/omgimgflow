@@ -167,6 +167,32 @@
           }
         }
       }
+    },
+    "omgimgflow-app-photos-features-shell": {
+      "projectType": "library",
+      "root": "libs/omgimgflow-app/photos/features/shell",
+      "sourceRoot": "libs/omgimgflow-app/photos/features/shell/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/omgimgflow-app/photos/features/shell/tsconfig.lib.json",
+              "libs/omgimgflow-app/photos/features/shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/omgimgflow-app/photos/features/shell/**/*"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/omgimgflow-app/photos/features/shell"],
+          "options": {
+            "jestConfig": "libs/omgimgflow-app/photos/features/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
