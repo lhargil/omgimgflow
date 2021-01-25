@@ -12,20 +12,7 @@ const routes: Routes = [];
       {
         path: '',
         component: LayoutComponent,
-        children: [
-          {
-            path: '',
-            pathMatch: 'full',
-            redirectTo: 'photos',
-          },
-          {
-            path: 'photos',
-            loadChildren: () =>
-              import('@omgimgflow/omgimgflow-app/photos/features/shell').then(
-                (module) => module.OmgimgflowAppPhotosFeaturesShellModule,
-              ),
-          },
-        ],
+        children: [],
       },
     ]),
   ],
