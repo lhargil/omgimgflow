@@ -178,6 +178,43 @@
           }
         }
       }
+    },
+    "omgimgflow-app-photos-feature-list": {
+      "projectType": "library",
+      "root": "libs/omgimgflow-app/photos/feature-list",
+      "sourceRoot": "libs/omgimgflow-app/photos/feature-list/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/omgimgflow-app/photos/feature-list/tsconfig.lib.json",
+            "project": "libs/omgimgflow-app/photos/feature-list/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/omgimgflow-app/photos/feature-list/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/omgimgflow-app/photos/feature-list/src/**/*.ts",
+              "libs/omgimgflow-app/photos/feature-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/omgimgflow-app/photos/feature-list"],
+          "options": {
+            "jestConfig": "libs/omgimgflow-app/photos/feature-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

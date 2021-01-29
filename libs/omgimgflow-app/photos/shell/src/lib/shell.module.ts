@@ -12,11 +12,16 @@ import { ShellComponent } from './shell.component';
         path: '',
         component: ShellComponent,
         children: [
-          // {
-          //   path: '',
-          //   pathMatch: 'full',
-          //   redirectTo: 'list'
-          // },
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'list',
+          },
+          {
+            path: 'list',
+            loadChildren: () =>
+              import('@omgimgflow/omgimgflow-app/photos/feature-list').then((module) => module.FeatureListModule),
+          },
         ],
       },
     ]),
