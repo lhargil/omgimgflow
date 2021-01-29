@@ -38,6 +38,9 @@
     },
     "omgimgflow-app-photos-feature-list": {
       "tags": ["scope:omgimgflow-app", "type:feature"]
+    },
+    "omgimgflow-app-photos-data-access": {
+      "tags": ["scope:omgimgflow-app", "type:data-access"]
     }
   }
 }

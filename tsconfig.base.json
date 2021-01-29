@@ -17,7 +17,8 @@
     "paths": {
       "@omgimgflow/omgimgflow-app/shell": ["libs/omgimgflow-app/shell/src/index.ts"],
       "@omgimgflow/omgimgflow-app/photos/shell": ["libs/omgimgflow-app/photos/shell/src/index.ts"],
-      "@omgimgflow/omgimgflow-app/photos/feature-list": ["libs/omgimgflow-app/photos/feature-list/src/index.ts"]
+      "@omgimgflow/omgimgflow-app/photos/feature-list": ["libs/omgimgflow-app/photos/feature-list/src/index.ts"],
+      "@omgimgflow/omgimgflow-app/photos/data-access": ["libs/omgimgflow-app/photos/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

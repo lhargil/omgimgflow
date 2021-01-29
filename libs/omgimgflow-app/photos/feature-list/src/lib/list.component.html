@@ -1,0 +1,7 @@
+list componnet here
+<ng-container *ngFor="let photo of photos">
+  <figure>
+    <img [src]="photo.filename" [attr.alt]="photo.description" />
+    <figcaption>{{ photo.description }}</figcaption>
+  </figure>
+</ng-container>
