@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@omgimgflow/omgimgflow-app/shell": ["libs/omgimgflow-app/shell/src/index.ts"]
+      "@omgimgflow/omgimgflow-app/shell": ["libs/omgimgflow-app/shell/src/index.ts"],
+      "@omgimgflow/omgimgflow-app/photos/shell": ["libs/omgimgflow-app/photos/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

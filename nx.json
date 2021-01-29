@@ -32,6 +32,9 @@
     },
     "omgimgflow-app-shell": {
       "tags": ["scope:omgimgflow-app", "type:feature"]
+    },
+    "omgimgflow-app-photos-shell": {
+      "tags": ["scope:omgimgflow-app", "type:feature"]
     }
   }
 }

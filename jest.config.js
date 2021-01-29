@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/omgimgflow-app/photos',
     '<rootDir>/libs/omgimgflow-app/photos/features/shell',
     '<rootDir>/libs/omgimgflow-app/photos/features/list',
+    '<rootDir>/libs/omgimgflow-app/photos/shell',
   ],
 };
