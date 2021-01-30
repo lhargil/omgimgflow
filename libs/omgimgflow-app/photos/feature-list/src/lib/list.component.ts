@@ -1,3 +1,5 @@
+import { EventEmitter } from '@angular/core';
+import { Output } from '@angular/core';
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
@@ -6,10 +8,15 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   @Input() photos: any;
+  @Output() photoClicked = new EventEmitter<any>();
 
-  constructor() {}
+  trackbyFn(photo: any) {
+    return photo.id;
+  }
 
-  ngOnInit(): void {}
+  handleConfigureClick(photo: any) {
+    this.photoClicked.emit(photo);
+  }
 }

@@ -4,7 +4,9 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'omgimgflow-shell-list',
-  template: ` <omgimgflow-list [photos]="photos$ | async"></omgimgflow-list> `,
+  template: `
+    <omgimgflow-list [photos]="photos$ | async" (photoClicked)="handlePhotoClicked($event)"></omgimgflow-list>
+  `,
   styles: [
     `
       :host {
@@ -27,4 +29,8 @@ export class ShellListComponent implements OnInit {
   constructor(private readonly photosService: PhotosService) {}
 
   ngOnInit(): void {}
+
+  handlePhotoClicked(photo: any) {
+    alert(JSON.stringify(photo));
+  }
 }
