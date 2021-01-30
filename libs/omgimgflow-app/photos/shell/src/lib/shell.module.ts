@@ -22,6 +22,11 @@ import { ShellComponent } from './shell.component';
             loadChildren: () =>
               import('@omgimgflow/omgimgflow-app/photos/feature-list').then((module) => module.FeatureListModule),
           },
+          {
+            path: 'edit/:id',
+            loadChildren: () =>
+              import('@omgimgflow/omgimgflow-app/photos/feature-edit').then((module) => module.FeatureEditModule),
+          },
         ],
       },
     ]),

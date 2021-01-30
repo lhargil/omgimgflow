@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/libs/omgimgflow-app/photos/shell',
     '<rootDir>/libs/omgimgflow-app/photos/feature-list',
     '<rootDir>/libs/omgimgflow-app/photos/data-access',
+    '<rootDir>/libs/omgimgflow-app/photos/feature-edit',
   ],
 };

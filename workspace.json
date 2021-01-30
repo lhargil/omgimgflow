@@ -252,6 +252,43 @@
           }
         }
       }
+    },
+    "omgimgflow-app-photos-feature-edit": {
+      "projectType": "library",
+      "root": "libs/omgimgflow-app/photos/feature-edit",
+      "sourceRoot": "libs/omgimgflow-app/photos/feature-edit/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/omgimgflow-app/photos/feature-edit/tsconfig.lib.json",
+            "project": "libs/omgimgflow-app/photos/feature-edit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/omgimgflow-app/photos/feature-edit/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/omgimgflow-app/photos/feature-edit/src/**/*.ts",
+              "libs/omgimgflow-app/photos/feature-edit/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/omgimgflow-app/photos/feature-edit"],
+          "options": {
+            "jestConfig": "libs/omgimgflow-app/photos/feature-edit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -259,10 +296,14 @@
   },
   "generators": {
     "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "strict": true
     },

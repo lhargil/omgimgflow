@@ -10,4 +10,8 @@ export class PhotosService {
   getPhotos() {
     return this.httpClient.get('/api/photos');
   }
+
+  getPhoto(id: string) {
+    return this.httpClient.get(`/api/photos/${id}`);
+  }
 }
