@@ -18,6 +18,6 @@ import { ListComponent } from './list.component';
     ]),
   ],
   declarations: [ShellListComponent, ListComponent],
-  exports: [ShellListComponent],
+  exports: [],
 })
 export class FeatureListModule {}
