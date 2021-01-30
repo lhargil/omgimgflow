@@ -12,8 +12,12 @@ export class ListComponent {
   @Input() photos: any;
   @Output() photoClicked = new EventEmitter<any>();
 
-  trackbyFn(photo: any) {
+  trackByPhotoId(photo: any) {
     return photo.id;
+  }
+
+  trackByTag(tag: string) {
+    return tag;
   }
 
   handleConfigureClick(photo: any) {
