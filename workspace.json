@@ -289,6 +289,43 @@
           }
         }
       }
+    },
+    "omgimgflow-app-photos-feature-create": {
+      "projectType": "library",
+      "root": "libs/omgimgflow-app/photos/feature-create",
+      "sourceRoot": "libs/omgimgflow-app/photos/feature-create/src",
+      "prefix": "omgimgflow",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/omgimgflow-app/photos/feature-create/tsconfig.lib.json",
+            "project": "libs/omgimgflow-app/photos/feature-create/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/omgimgflow-app/photos/feature-create/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/omgimgflow-app/photos/feature-create/src/**/*.ts",
+              "libs/omgimgflow-app/photos/feature-create/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/omgimgflow-app/photos/feature-create"],
+          "options": {
+            "jestConfig": "libs/omgimgflow-app/photos/feature-create/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

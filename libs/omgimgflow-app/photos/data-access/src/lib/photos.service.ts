@@ -17,6 +17,24 @@ export class PhotosService {
     return this.httpClient.get(`/api/photos/${id}`);
   }
 
+  uploadPhoto(omgImage: any) {
+    const formData = new FormData();
+    formData.append('title', omgImage.title);
+    formData.append('description', omgImage.description);
+    formData.append('photo', omgImage.photo);
+
+    if (omgImage.tag && omgImage.tag.length > 0) {
+      omgImage.tags.forEach((tag: string) => formData.append('tags[]', tag));
+    }
+
+    return this.httpClient
+      .post(`/api/photos`, formData, {
+        reportProgress: true,
+        observe: 'events',
+      })
+      .pipe(catchError(this.errorMgmt));
+  }
+
   updatePhoto(id: string, photoEdit: any) {
     const formData = new FormData();
     formData.append('title', photoEdit.title);

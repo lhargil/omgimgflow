@@ -22,6 +22,7 @@
     "omgimgflow-app-photos-shell": { "tags": ["scope:omgimgflow-app", "type:feature"] },
     "omgimgflow-app-photos-feature-list": { "tags": ["scope:omgimgflow-app", "type:feature"] },
     "omgimgflow-app-photos-data-access": { "tags": ["scope:omgimgflow-app", "type:data-access"] },
-    "omgimgflow-app-photos-feature-edit": { "tags": ["scope:omgimgflow-app", "type:feature"] }
+    "omgimgflow-app-photos-feature-edit": { "tags": ["scope:omgimgflow-app", "type:feature"] },
+    "omgimgflow-app-photos-feature-create": { "tags": ["scope:omgimgflow-app", "type:feature"] }
   }
 }

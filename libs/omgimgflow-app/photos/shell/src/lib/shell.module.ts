@@ -27,6 +27,11 @@ import { ShellComponent } from './shell.component';
             loadChildren: () =>
               import('@omgimgflow/omgimgflow-app/photos/feature-edit').then((module) => module.FeatureEditModule),
           },
+          {
+            path: 'create',
+            loadChildren: () =>
+              import('@omgimgflow/omgimgflow-app/photos/feature-create').then((module) => module.FeatureCreateModule),
+          },
         ],
       },
     ]),

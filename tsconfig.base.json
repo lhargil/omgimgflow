@@ -19,7 +19,8 @@
       "@omgimgflow/omgimgflow-app/photos/shell": ["libs/omgimgflow-app/photos/shell/src/index.ts"],
       "@omgimgflow/omgimgflow-app/photos/feature-list": ["libs/omgimgflow-app/photos/feature-list/src/index.ts"],
       "@omgimgflow/omgimgflow-app/photos/data-access": ["libs/omgimgflow-app/photos/data-access/src/index.ts"],
-      "@omgimgflow/omgimgflow-app/photos/feature-edit": ["libs/omgimgflow-app/photos/feature-edit/src/index.ts"]
+      "@omgimgflow/omgimgflow-app/photos/feature-edit": ["libs/omgimgflow-app/photos/feature-edit/src/index.ts"],
+      "@omgimgflow/omgimgflow-app/photos/feature-create": ["libs/omgimgflow-app/photos/feature-create/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
