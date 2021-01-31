@@ -4,6 +4,7 @@ import { map, switchMap, tap } from 'rxjs/operators';
 import { PhotosService } from '@omgimgflow/omgimgflow-app/photos/data-access';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 @UntilDestroy()
 @Component({
@@ -12,12 +13,15 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
     <omgimgflow-shell-edit-form
       *ngIf="omgImage$ | async as omgImage"
       [omgImage]="omgImage"
-      (photoEdited)="handlePhotoEdit($event)"
+      (photoEdited)="handlePhotoEditSubmit($event)"
+      (fileUploaded)="handleFileUpload($event)"
     ></omgimgflow-shell-edit-form>
   `,
   styles: [],
 })
 export class ShellEditComponent {
+  uploadedFile: File | null = null;
+
   imageId$ = new BehaviorSubject<string | null>(null);
 
   omgImage$ = this.imageId$.pipe(
@@ -53,10 +57,40 @@ export class ShellEditComponent {
       .subscribe();
   }
 
-  handlePhotoEdit(photoEdit: any) {
+  handleFileUpload($event: any) {
+    if ($event.target.files && $event.target.files.length) {
+      this.uploadedFile = $event.target.files[0];
+    }
+  }
+
+  handlePhotoEditSubmit(photoEdit: any) {
     this.photosService
-      .updatePhoto(this.imageId$.getValue() || '', photoEdit)
+      .updatePhoto(this.imageId$.getValue() || '', {
+        ...photoEdit,
+        photo: this.uploadedFile,
+      })
       .pipe(untilDestroyed(this))
-      .subscribe();
+      .subscribe((event: HttpEvent<any>) => {
+        switch (event.type) {
+          case HttpEventType.Sent:
+            console.log('Request has been made!');
+            break;
+          case HttpEventType.ResponseHeader:
+            console.log('Response header has been received!');
+            break;
+          case HttpEventType.UploadProgress:
+            // const progress = Math.round((event.loaded / event.total!) * 100);
+            // console.log(`Uploaded! ${progress}%`);
+            break;
+          case HttpEventType.Response:
+            console.log('User successfully created!', event.body);
+            setTimeout(() => {
+              // this.progress = 0;
+              // this.addedPhoto$.next(true);
+              // this.photosForm.reset();
+              console.log('updated');
+            }, 1500);
+        }
+      });
   }
 }

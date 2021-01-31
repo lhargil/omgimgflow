@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'omgimgflow-shell-edit-form',
@@ -16,6 +15,8 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 export class ShellEditFormComponent implements OnInit {
   @Input() omgImage: any;
   @Output() photoEdited = new EventEmitter<any>();
+  @Output()
+  fileUploaded = new EventEmitter<any>();
 
   photoEditForm?: FormGroup;
 
@@ -31,6 +32,7 @@ export class ShellEditFormComponent implements OnInit {
 
   ngOnInit() {
     this.photoEditForm = this.formBuilder.group({
+      photo: this.formBuilder.control(null),
       title: [this.omgImage.title, [Validators.required]],
       description: [this.omgImage.description],
       tags: this.formBuilder.array(
@@ -45,6 +47,10 @@ export class ShellEditFormComponent implements OnInit {
 
   handleAddTag() {
     this.tags.push(this.formBuilder.control('', [Validators.required]));
+  }
+
+  handleFileUpload($event: any) {
+    this.fileUploaded.emit($event);
   }
 
   handleSubmit() {
